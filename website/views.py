@@ -27,6 +27,11 @@ def home():
 def newhome():
     return render_template("newhome.html", user=current_user)
 
+@views.route("/update")
+@login_required
+def update():
+    return render_template("update.html", user=current_user)
+
 @views.route('/delete-note', methods=["POST"])
 def delete_note():
     note = json.loads(request.data)

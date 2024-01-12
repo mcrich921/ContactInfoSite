@@ -1,33 +1,31 @@
 {% extends "base.html" %} {% block title %} Home {% endblock %}
 {% block content %}
 
+<br />
 <h1 align="center"> Your Information </h1>
 <br />
-<div class="card-header">
-    {{ user.first_name + " " + user.last_name}}
+<div class="card">
+    <div class="card-header">
+        {{ user.first_name + " " + user.last_name}}
+    </div>
+
+    <div class="card-body">
+
+        <strong>Email:</strong>
+        {{user.email}} <br />
+
+        <strong>Phone Number:</strong>
+        {% if user.phone %}
+        {{user.email}} 
+        {% endif %}
+        <br />
+
+        <strong>LinkedIn:</strong>
+        <a href="https://www.linkedin.com/feed/" target="_blank">www.linkedin.com/feed/</a><br />
+
+        <br />
+        <a href="{{ url_for('views.update')}}" class="btn btn-secondary btn-sm">Update Profile</a>
+    </div>
 </div>
-
-<div class="card-body">
-    <p class="card-text">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <strong>Name:</strong>
-                    {{user.first_name + " " + user.last_name}}<br />
-
-                    <strong>Email:</strong>
-                    {{user.email}} <br />
-
-                    <strong>Email:</strong>
-                    {{user.email}} <br />
-                    
-
-
-                </div>
-            </div>
-        </div>
-    </p>
-</div>
-
 
 {% endblock %}
